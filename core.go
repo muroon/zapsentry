@@ -2,6 +2,7 @@ package zapsentry
 
 import (
 	"errors"
+	"fmt"
 	"reflect"
 	"strings"
 	"time"
@@ -205,9 +206,10 @@ func (c *core) hub() *sentry.Hub {
 
 func (c *core) scope() *sentry.Scope {
 	if c.sentryScope != nil {
+		fmt.Println("scope() sentryScope")
 		return c.sentryScope
 	}
-
+	fmt.Println("scope() c.hub().Scope()")
 	return c.hub().Scope()
 }
 
